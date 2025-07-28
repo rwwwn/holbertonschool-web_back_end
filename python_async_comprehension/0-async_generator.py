@@ -2,6 +2,7 @@
 """
 Module that defines async_generator, a coroutine that yields 10 random numbers.
 """
+
 import asyncio
 import random
 from typing import AsyncGenerator
