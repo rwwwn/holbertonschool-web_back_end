@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Coroutine to measure total runtime of parallel async comprehensions."""
+
 import asyncio
 import time
-from 1-async_comprehension import async_comprehension  # adjust if needed
+from 1_async_comprehension import async_comprehension
+
 
 async def measure_runtime() -> float:
     """
