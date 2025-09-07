@@ -13,8 +13,10 @@ class StudentsController {
         const list = byField[field] || [];
         lines.push(`Number of students in ${field}: ${list.length}. List: ${list.join(', ')}`);
       }
+      res.set('Content-Type', 'text/plain');
       res.status(200).send(lines.join('\n'));
     } catch (_err) {
+      res.set('Content-Type', 'text/plain');
       res.status(500).send('Cannot load the database');
     }
   }
@@ -22,6 +24,7 @@ class StudentsController {
   static async getAllStudentsByMajor(req, res) {
     const { major } = req.params;
     if (major !== 'CS' && major !== 'SWE') {
+      res.set('Content-Type', 'text/plain');
       res.status(500).send('Major parameter must be CS or SWE');
       return;
     }
@@ -29,8 +32,10 @@ class StudentsController {
     try {
       const byField = await readDatabase(dbPath);
       const list = byField[major] || [];
+      res.set('Content-Type', 'text/plain');
       res.status(200).send(`List: ${list.join(', ')}`);
     } catch (_err) {
+      res.set('Content-Type', 'text/plain');
       res.status(500).send('Cannot load the database');
     }
   }
