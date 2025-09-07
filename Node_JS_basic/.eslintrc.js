@@ -28,6 +28,26 @@ module.exports = {
     'no-console': 'off',
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     'import/extensions': 'off',
-    'consistent-return': 'off'
+    'consistent-return': 'off',
+    'import/prefer-default-export': 'off',
+    'max-len': ['error', {
+      code: 120, ignoreComments: true, ignoreStrings: true, ignoreTemplateLiterals: true,
+    }],
+    // Allow for..of (keep Airbnb's other restricted syntaxes)
+    'no-restricted-syntax': [
+      'error',
+      {
+        selector: 'ForInStatement',
+        message: 'for..in loops iterate over the entire prototype chain. Use Object.{keys,values,entries} with forEach.',
+      },
+      {
+        selector: 'LabeledStatement',
+        message: 'Labels are a form of GOTO; using them makes code confusing and hard to maintain.',
+      },
+      {
+        selector: 'WithStatement',
+        message: '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
+      },
+    ],
   },
 };
